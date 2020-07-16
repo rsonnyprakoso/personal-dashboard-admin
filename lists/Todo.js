@@ -1,4 +1,4 @@
-const { Text, DateTime, Select, Checkbox, Relationship } = require('@keystonejs/fields');
+const { Text, DateTimeUtc, Select, Checkbox, Relationship } = require('@keystonejs/fields');
 
 module.exports = {
   fields: {
@@ -11,7 +11,7 @@ module.exports = {
       defaultValue: false,
     },
     scheduledOn: {
-      type: DateTime
+      type: DateTimeUtc
     },
     priority: {
       type: Select,
