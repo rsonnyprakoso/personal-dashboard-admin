@@ -1,4 +1,4 @@
-const { Text, DateTimeUtc, Select, Checkbox, Relationship } = require('@keystonejs/fields');
+const { Text, CalendarDay, Select, Checkbox, Relationship } = require('@keystonejs/fields');
 
 module.exports = {
   fields: {
@@ -11,7 +11,7 @@ module.exports = {
       defaultValue: false,
     },
     scheduledOn: {
-      type: DateTimeUtc
+      type: CalendarDay
     },
     priority: {
       type: Select,
