@@ -8,13 +8,25 @@ module.exports = {
     },
     priority: {
       type: Select,
-      options: ['high', 'medium', 'low'],
-      defaultValue: 'medium'
+      options: [
+        { value: 1, label: 'High' },
+        { value: 2, label: 'Medium' },
+        { value: 3, label: 'Low' }
+      ],
+      dataType: 'integer',
+      defaultValue: 2
     },
     status: {
       type: Select,
-      options: ['todo', 'upcoming', 'ongoing', 'later', 'done'],
-      defaultValue: 'upcoming'
+      options: [
+        { value: 1, label: 'To Do' },
+        { value: 2, label: 'Upcoming' },
+        { value: 3, label: 'Ongoing' },
+        { value: 4, label: 'Later' },
+        { value: 5, label: 'Done' },
+      ],
+      dataType: 'integer',
+      defaultValue: 2
     },
     tasks: { type: Relationship, ref: 'Todo.project', many: true },
   },

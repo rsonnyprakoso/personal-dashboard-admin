@@ -15,8 +15,13 @@ module.exports = {
     },
     priority: {
       type: Select,
-      options: ['high', 'medium', 'low'],
-      defaultValue: 'medium'
+      options: [
+        { value: 1, label: 'High' },
+        { value: 2, label: 'Medium' },
+        { value: 3, label: 'Low' }
+      ],
+      dataType: 'integer',
+      defaultValue: 2
     },
     project: { type: Relationship, ref: 'Project.tasks', many: false },
   },
