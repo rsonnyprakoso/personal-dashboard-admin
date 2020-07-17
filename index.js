@@ -1,3 +1,5 @@
+require('dotenv').config({ path: process.env.NODE_ENV === 'development' ? '.env.local' : '.env' });
+
 const { Keystone } = require('@keystonejs/keystone');
 const { GraphQLApp } = require('@keystonejs/app-graphql');
 const { AdminUIApp } = require('@keystonejs/app-admin-ui');
@@ -8,8 +10,7 @@ const ProjectSchema = require('./lists/Project.js');
 const ShortcutSchema = require('./lists/Shortcut.js');
 
 const PROJECT_NAME = 'personal-dashboard-admin';
-const adapterConfig = { mongoUri: 'mongodb+srv://pd-admin:pd-admin-13@cluster0.ormnm.gcp.mongodb.net/pd-db?retryWrites=true&w=majority' };
-
+const adapterConfig = { mongoUri: process.env.KEYSTONE_MONGODB_URL };
 
 /**
  * You've got a new KeystoneJS Project! Things you might want to do next:
@@ -20,7 +21,7 @@ const adapterConfig = { mongoUri: 'mongodb+srv://pd-admin:pd-admin-13@cluster0.o
 const keystone = new Keystone({
   name: PROJECT_NAME,
   adapter: new Adapter(adapterConfig),
-  cookieSecret: 'gG8nb4AJZhL1LdD85khFT6fOwHi2aIPVm'
+  cookieSecret: process.env.KEYSTONE_COOKIE_SECRET
 });
 
 keystone.createList('Todo', TodoSchema);
