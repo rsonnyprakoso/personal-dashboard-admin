@@ -8,6 +8,8 @@ const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose');
 const TodoSchema = require('./lists/Todo.js');
 const ProjectSchema = require('./lists/Project.js');
 const ShortcutSchema = require('./lists/Shortcut.js');
+const TargetSchema = require('./lists/Target.js');
+const TargetDoneSchema = require('./lists/TargetDone.js');
 
 const PROJECT_NAME = 'personal-dashboard-admin';
 const adapterConfig = { mongoUri: process.env.KEYSTONE_MONGODB_URL };
@@ -27,6 +29,8 @@ const keystone = new Keystone({
 keystone.createList('Todo', TodoSchema);
 keystone.createList('Project', ProjectSchema);
 keystone.createList('Shortcut', ShortcutSchema);
+keystone.createList('Target', TargetSchema);
+keystone.createList('TargetDone', TargetDoneSchema);
 
 module.exports = {
   keystone,
