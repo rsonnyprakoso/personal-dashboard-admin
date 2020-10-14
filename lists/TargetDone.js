@@ -1,10 +1,11 @@
-const { CalendarDay, Relationship } = require('@keystonejs/fields');
+const { Relationship } = require('@keystonejs/fields');
+const { createdAt } = require('@keystonejs/list-plugins');
 
 module.exports = {
   fields: {
-    target: { type: Relationship, ref: 'Target.targetDoneList', many: false },
-    completedDate: {
-      type: CalendarDay
-    }
+    target: { type: Relationship, ref: 'Target.targetDoneList', many: false }
   },
+  plugins: [
+    createdAt({ createdAtField: 'doneAt' })
+  ]
 };
